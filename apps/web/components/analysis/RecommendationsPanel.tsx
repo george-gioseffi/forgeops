@@ -51,30 +51,36 @@ export function RecommendationsPanel({
               {PRIORITY_LABEL[prio]} · {groups[prio].length}
             </div>
             <ul className="space-y-2">
-              {groups[prio].map((rec) => (
-                <li
-                  key={rec.id}
-                  className="rounded-lg border border-bg-border bg-bg-subtle/50 px-3 py-3"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="text-sm font-medium text-zinc-100">
-                      {rec.title}
-                    </div>
-                    <span className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-zinc-500">
-                      <span
-                        className={cn("h-1.5 w-1.5 rounded-full", IMPACT_DOT[rec.impact])}
-                      />
-                      {IMPACT_LABEL[rec.impact] ?? rec.impact}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs leading-relaxed text-zinc-400">
-                    {rec.rationale}
-                  </p>
-                  <div className="mt-2 text-[10px] font-mono text-zinc-600">
-                    esforço: {rec.effort}
-                  </div>
+              {groups[prio].length === 0 ? (
+                <li className="rounded-lg border border-dashed border-bg-border px-3 py-4 text-center text-xs text-zinc-600">
+                  Nada por aqui.
                 </li>
-              ))}
+              ) : (
+                groups[prio].map((rec) => (
+                  <li
+                    key={rec.id}
+                    className="rounded-lg border border-bg-border bg-bg-subtle/50 px-3 py-3"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="text-sm font-medium text-zinc-100">
+                        {rec.title}
+                      </div>
+                      <span className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-zinc-500">
+                        <span
+                          className={cn("h-1.5 w-1.5 rounded-full", IMPACT_DOT[rec.impact])}
+                        />
+                        {IMPACT_LABEL[rec.impact] ?? rec.impact}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                      {rec.rationale}
+                    </p>
+                    <div className="mt-2 text-[10px] font-mono text-zinc-600">
+                      esforço: {rec.effort}
+                    </div>
+                  </li>
+                ))
+              )}
             </ul>
           </div>
         ))}

@@ -122,11 +122,17 @@ export function IssueList({ issues }: { issues: IssueItem[] }) {
           ))}
         </div>
       </div>
-      <ul className="divide-y divide-bg-border">
-        {sorted.map((issue) => (
-          <IssueRow key={issue.id} issue={issue} />
-        ))}
-      </ul>
+      {sorted.length === 0 ? (
+        <div className="px-5 py-10 text-center text-sm text-zinc-500">
+          Nenhum problema neste filtro.
+        </div>
+      ) : (
+        <ul className="divide-y divide-bg-border">
+          {sorted.map((issue) => (
+            <IssueRow key={issue.id} issue={issue} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
