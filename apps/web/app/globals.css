@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  background: #0a0a12;
+  color: #e9e9f4;
+}
+
+body {
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(138, 104, 255, 0.35);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #272739;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a55;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-bg-border bg-bg-card shadow-panel;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-violet-500 px-5 py-2.5
+           text-sm font-medium text-white shadow-glow transition-all hover:bg-violet-400
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300
+           disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-bg-border
+           bg-bg-subtle/50 px-5 py-2.5 text-sm font-medium text-zinc-200 transition-all
+           hover:border-violet-500/40 hover:text-white
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/40
+           disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-tab {
+    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-zinc-400
+           transition-colors hover:text-zinc-100
+           disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-tab.active {
+    @apply text-white;
+    background: rgba(138, 104, 255, 0.16);
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-bg-border
+           bg-bg-subtle px-2.5 py-1 text-xs font-medium text-zinc-300;
+  }
+  .chip-accent {
+    @apply chip border-violet-500/40 bg-violet-500/10 text-violet-200;
+  }
+  .section-title {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-zinc-500;
+  }
+  .prose-mini h1 { @apply text-xl font-semibold text-zinc-100 mt-6 mb-3; }
+  .prose-mini h2 { @apply text-lg font-semibold text-zinc-100 mt-6 mb-2; }
+  .prose-mini h3 { @apply text-base font-semibold text-zinc-200 mt-4 mb-2; }
+  .prose-mini h4 { @apply text-sm font-semibold text-zinc-300 mt-3 mb-1; }
+  .prose-mini p { @apply text-sm text-zinc-300 leading-relaxed my-2; }
+  .prose-mini ul { @apply text-sm text-zinc-300 list-disc pl-6 my-2 space-y-1; }
+  .prose-mini ol { @apply text-sm text-zinc-300 list-decimal pl-6 my-2 space-y-1; }
+  .prose-mini code {
+    @apply rounded bg-bg-subtle px-1 py-0.5 text-[0.8em] text-violet-200
+           border border-bg-border;
+  }
+  .prose-mini pre {
+    @apply rounded-xl bg-bg-subtle/70 border border-bg-border p-4 my-3
+           text-xs overflow-x-auto;
+  }
+  .prose-mini pre code { @apply bg-transparent border-0 p-0 text-zinc-200; }
+  .prose-mini table { @apply w-full text-sm my-3; }
+  .prose-mini th, .prose-mini td {
+    @apply border-b border-bg-border px-3 py-2 text-left;
+  }
+  .prose-mini th { @apply text-zinc-400 font-medium; }
+  .prose-mini a { @apply text-violet-300 underline; }
+  .prose-mini strong { @apply text-zinc-100 font-semibold; }
+  .prose-mini em { @apply text-zinc-400 italic; }
+  .prose-mini hr { @apply my-6 border-bg-border; }
+  .prose-mini blockquote {
+    @apply border-l-2 border-violet-500/60 pl-4 my-3 text-zinc-400;
+  }
+}
+
+/* A subtle starfield behind the hero */
+.hero-bg {
+  background-image:
+    radial-gradient(circle at 85% 10%, rgba(138, 104, 255, 0.18), transparent 40%);
+}
+
+/* Animation for progress */
+@keyframes forge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.forge-pulse { animation: forge-pulse 1.6s ease-in-out infinite; }
