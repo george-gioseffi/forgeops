@@ -107,7 +107,8 @@ body {
 /* A subtle starfield behind the hero */
 .hero-bg {
   background-image:
-    radial-gradient(circle at 85% 10%, rgba(138, 104, 255, 0.18), transparent 40%);
+    radial-gradient(circle at 85% 10%, rgba(138, 104, 255, 0.18), transparent 40%),
+    radial-gradient(circle at 10% 30%, rgba(90, 47, 235, 0.12), transparent 45%);
 }
 
 /* Animation for progress */

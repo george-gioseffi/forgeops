@@ -10,7 +10,9 @@ export function Hero() {
         <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-zinc-50 sm:text-5xl">
           Analise um repositório
           <br />
-          <span className="text-violet-300">e receba um raio‑X técnico.</span>
+          <span className="bg-gradient-to-r from-violet-200 via-violet-300 to-violet-500 bg-clip-text text-transparent">
+            e receba um raio‑X técnico.
+          </span>
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
           Envie um ZIP ou rode a análise da demo. O ForgeOps varre a árvore de arquivos,
@@ -39,11 +41,13 @@ export function Hero() {
           return (
             <div
               key={item.sub}
-              className="panel bg-bg-card/80 p-4"
+              className="panel bg-bg-card/80 p-4 transition-colors hover:border-violet-500/30"
             >
-              <div className="flex items-center gap-2 text-violet-300">
-                <Icon size={14} />
-                <div className="text-[10px] uppercase tracking-wider text-zinc-500">
+              <div className="flex items-center gap-2.5">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-violet-500/25 bg-violet-500/10 text-violet-200">
+                  <Icon size={14} />
+                </span>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">
                   {item.sub}
                 </div>
               </div>
