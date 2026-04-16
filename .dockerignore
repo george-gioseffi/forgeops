@@ -8,6 +8,7 @@
 **/.env
 **/.env.local
 **/.env.*.local
+!samples/demo-repo/.env
 **/*.log
 **/.DS_Store
 **/.git

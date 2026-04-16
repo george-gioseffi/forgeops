@@ -28,6 +28,9 @@ env/
 .env.local
 .env.*.local
 !.env.example
+# Demo repo is intentionally imperfect — keep its .env and build/ as seed data
+!samples/demo-repo/.env
+!samples/demo-repo/build/
 
 # Editors
 .vscode/
@@ -42,6 +45,7 @@ Thumbs.db
 dist/
 coverage/
 .turbo/
+!samples/demo-repo/build/
 
 # ForgeOps runtime data
 apps/api/data/
