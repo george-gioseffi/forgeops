@@ -19,16 +19,13 @@ export function QuickMetrics({ session }: { session: AnalysisSession }) {
   ];
 
   return (
-    <section className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-5 lg:grid-cols-10">
+    <section className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-5">
       {items.map((i) => (
-        <div
-          key={i.label}
-          className="rounded-xl border border-bg-border bg-bg-card/80 px-3 py-2.5"
-        >
-          <div className="text-[10px] uppercase tracking-wider text-zinc-500">
+        <div key={i.label} className="stat-card">
+          <div className="text-[10px] uppercase tracking-[0.16em] text-zinc-500">
             {i.label}
           </div>
-          <div className="mt-1 text-lg font-semibold tabular-nums text-zinc-100">
+          <div className="mt-1.5 text-xl font-semibold tabular-nums text-zinc-100">
             {i.value}
           </div>
         </div>

@@ -42,6 +42,9 @@ body {
   .panel {
     @apply rounded-2xl border border-bg-border bg-bg-card shadow-panel;
   }
+  .panel-hoverable {
+    @apply panel transition-colors hover:border-violet-500/40;
+  }
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-xl bg-violet-500 px-5 py-2.5
            text-sm font-medium text-white shadow-glow transition-all hover:bg-violet-400
@@ -72,7 +75,11 @@ body {
     @apply chip border-violet-500/40 bg-violet-500/10 text-violet-200;
   }
   .section-title {
-    @apply text-[11px] font-semibold uppercase tracking-wider text-zinc-500;
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-zinc-500;
+  }
+  .stat-card {
+    @apply rounded-xl border border-bg-border bg-bg-card/80 px-4 py-3 transition-colors
+           hover:border-violet-500/30;
   }
   .prose-mini h1 { @apply text-xl font-semibold text-zinc-100 mt-6 mb-3; }
   .prose-mini h2 { @apply text-lg font-semibold text-zinc-100 mt-6 mb-2; }
