@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import type { AnalysisSession } from "@/lib/types";
 import { Tabs } from "@/components/ui/Tabs";
@@ -28,10 +29,32 @@ const TABS = [
 
 type TabKey = (typeof TABS)[number]["key"];
 
+const TAB_KEYS = TABS.map((t) => t.key) as readonly TabKey[];
+
+function isTabKey(value: string | null): value is TabKey {
+  return !!value && (TAB_KEYS as readonly string[]).includes(value);
+}
+
 export function AnalysisView({ session }: { session: AnalysisSession }) {
-  const [tab, setTab] = useState<TabKey>("overview");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const urlTab = searchParams.get("tab");
+  const [tab, setTab] = useState<TabKey>(isTabKey(urlTab) ? urlTab : "overview");
   const stats = session.repository_stats;
   const stack = session.detected_stack;
+
+  useEffect(() => {
+    if (isTabKey(urlTab) && urlTab !== tab) setTab(urlTab);
+  }, [urlTab, tab]);
+
+  const onTabChange = (next: TabKey) => {
+    setTab(next);
+    const params = new URLSearchParams(Array.from(searchParams.entries()));
+    if (next === "overview") params.delete("tab");
+    else params.set("tab", next);
+    const query = params.toString();
+    router.replace(query ? `?${query}` : "?", { scroll: false });
+  };
 
   return (
     <div className="space-y-8">
@@ -51,7 +74,7 @@ export function AnalysisView({ session }: { session: AnalysisSession }) {
       <QuickMetrics session={session} />
 
       <div className="sticky top-[70px] z-30 -mx-6 border-y border-bg-border/60 bg-bg-base/85 px-6 py-3 backdrop-blur-md">
-        <Tabs<TabKey> items={[...TABS]} active={tab} onChange={setTab} />
+        <Tabs<TabKey> items={[...TABS]} active={tab} onChange={onTabChange} />
       </div>
 
       {tab === "overview" ? (
