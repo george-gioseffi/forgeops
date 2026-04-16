@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Info } from "lucide-react";
 import type { ScoreDimension } from "@/lib/types";
-import { scoreBand } from "@/lib/utils";
+import { cn, scoreBand } from "@/lib/utils";
 import { ProgressBar } from "@/components/ui/Progress";
 
 function ScoreCard({ score }: { score: ScoreDimension }) {
@@ -13,11 +13,11 @@ function ScoreCard({ score }: { score: ScoreDimension }) {
     <div className="panel p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="text-[11px] uppercase tracking-wider text-zinc-500">
+          <div className="text-[11px] uppercase tracking-[0.18em] text-zinc-500">
             {score.name}
           </div>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className={`text-3xl font-semibold tabular-nums ${band.className}`}>
+            <span className={cn("text-3xl font-semibold tabular-nums", band.className)}>
               {score.score}
             </span>
             <span className="text-sm text-zinc-500">/ 100</span>
@@ -29,9 +29,16 @@ function ScoreCard({ score }: { score: ScoreDimension }) {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="text-xs text-zinc-400 hover:text-zinc-100 inline-flex items-center gap-1"
+          className={cn(
+            "inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors",
+            open
+              ? "border-violet-500/40 bg-violet-500/15 text-violet-100"
+              : "border-bg-border bg-bg-subtle/50 text-zinc-300 hover:border-violet-500/30 hover:text-white"
+          )}
           aria-expanded={open}
+          aria-label="Mostrar evidências da nota"
         >
+          <Info size={13} />
           {open ? "Ocultar" : "Por quê"}
           {open ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
         </button>

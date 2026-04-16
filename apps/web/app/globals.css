@@ -56,12 +56,12 @@ body {
            disabled:cursor-not-allowed disabled:opacity-60;
   }
   .btn-tab {
-    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-zinc-400
-           transition-colors hover:text-zinc-100
-           disabled:cursor-not-allowed disabled:opacity-40;
+    @apply inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-sm text-zinc-400
+           transition-colors hover:bg-bg-subtle/60 hover:text-zinc-100
+           disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent;
   }
   .btn-tab.active {
-    @apply text-white;
+    @apply text-white shadow-[inset_0_0_0_1px_rgba(138,104,255,0.35)];
     background: rgba(138, 104, 255, 0.16);
   }
   .chip {

@@ -50,7 +50,9 @@ export function AnalysisView({ session }: { session: AnalysisSession }) {
       <SummaryHero session={session} />
       <QuickMetrics session={session} />
 
-      <Tabs<TabKey> items={[...TABS]} active={tab} onChange={setTab} />
+      <div className="sticky top-[70px] z-30 -mx-6 border-y border-bg-border/60 bg-bg-base/85 px-6 py-3 backdrop-blur-md">
+        <Tabs<TabKey> items={[...TABS]} active={tab} onChange={setTab} />
+      </div>
 
       {tab === "overview" ? (
         <div className="space-y-8">
