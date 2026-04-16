@@ -1,0 +1,4 @@
+todo list (personal):
+- ship mvp
+- write actual readme
+- delete this file
