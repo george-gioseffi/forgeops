@@ -94,11 +94,11 @@ export function ScoreCards({ scores }: { scores: ScoreDimension[] }) {
     <section className="mt-8">
       <div className="mb-4 flex items-end justify-between">
         <div>
-          <div className="section-title">Pontuações</div>
-          <h2 className="mt-2 text-xl font-semibold text-zinc-100">Notas por dimensão</h2>
+          <div className="section-title">Saúde de engenharia</div>
+          <h2 className="mt-2 text-xl font-semibold text-zinc-100">Detalhamento das notas</h2>
         </div>
         <div className="text-xs text-zinc-500">
-          7 dimensões ponderadas · clique em <span className="text-zinc-300">Por quê</span> para ver evidências.
+          Ponderado em 7 dimensões · clique em <span className="text-zinc-300">Por quê</span> para ver evidências.
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

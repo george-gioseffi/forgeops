@@ -20,10 +20,10 @@ export function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a href="#inicio" className="btn-primary">
-            Começar análise
+            Analisar um repositório
           </a>
           <a href="#como-funciona" className="btn-ghost">
-            Ver como funciona
+            Como funciona
           </a>
         </div>
       </div>

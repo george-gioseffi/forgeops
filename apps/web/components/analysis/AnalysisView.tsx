@@ -40,10 +40,10 @@ export function AnalysisView({ session }: { session: AnalysisSession }) {
           href="/"
           className="inline-flex items-center gap-2 text-xs text-zinc-400 hover:text-zinc-100"
         >
-          <ArrowLeft size={14} /> Voltar
+          <ArrowLeft size={14} /> Voltar ao dashboard
         </Link>
         <Link href="/" className="btn-ghost !px-4 !py-2 !text-xs">
-          <RefreshCw size={14} /> Novo repo
+          <RefreshCw size={14} /> Analisar outro repositório
         </Link>
       </div>
 
