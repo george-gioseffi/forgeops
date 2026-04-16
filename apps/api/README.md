@@ -1,10 +1,11 @@
 # ForgeOps API
 
-FastAPI service that powers ForgeOps repository analysis. Reads a ZIP upload
-or the seeded demo repo, scans the tree, runs the scoring engine, emits
-issues / recommendations / a phased plan, and generates markdown reports.
+Serviço FastAPI que alimenta a análise de repositórios do ForgeOps. Lê um ZIP
+enviado pelo usuário ou o repositório demo embutido, varre a árvore, roda o
+engine de scoring, emite problemas / recomendações / um plano em fases e
+gera relatórios em Markdown.
 
-## Quick start
+## Começo rápido
 
 ```bash
 cd apps/api
@@ -15,14 +16,15 @@ uvicorn forgeops.main:app --reload --port 8000
 
 ## Endpoints
 
-| Method | Path                                 | Purpose                                   |
+| Método | Path                                 | Função                                    |
 |--------|--------------------------------------|-------------------------------------------|
 | GET    | `/health`                            | Liveness probe                            |
-| POST   | `/api/analyze/upload`                | Analyze an uploaded ZIP                   |
-| POST   | `/api/analyze/demo`                  | Analyze the bundled demo repository       |
-| GET    | `/api/analysis/{id}`                 | Fetch an analysis session                 |
-| GET    | `/api/analysis/{id}/documents`       | Fetch the generated markdown docs         |
-| GET    | `/api/analysis`                      | List recent analyses                      |
+| POST   | `/api/analyze/upload`                | Analisa um ZIP enviado                    |
+| POST   | `/api/analyze/demo`                  | Analisa o repositório demo embutido       |
+| GET    | `/api/analysis/{id}`                 | Busca uma sessão de análise               |
+| GET    | `/api/analysis/{id}/documents`       | Busca os documentos Markdown gerados      |
+| GET    | `/api/analysis`                      | Lista análises recentes                   |
 
-The full data model lives in `forgeops/models/schemas.py`. See the root
-`docs/SCORING.md` for a reference of how scores and issues are computed.
+O modelo de dados completo vive em `forgeops/models/schemas.py`. Veja o
+`docs/SCORING.md` na raiz para a referência de como notas e problemas são
+calculados.
