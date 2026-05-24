@@ -2,7 +2,7 @@
 
 # ForgeOps
 
-**Auditoria técnica de repositórios — determinística, offline, pronta para portfólio.**
+**Auditoria técnica de repositórios — determinística, offline, com nota e plano de ação.**
 
 Envie um ZIP (ou clique em _Analisar demo_) e receba nota de saúde em sete dimensões,
 backlog de problemas com evidência, plano de remediação em cinco fases e quatro
@@ -44,7 +44,7 @@ Cada estágio é uma função pura. O scanner percorre a árvore uma única vez;
 | Higiene de Segurança   | 0.10 | `.env` commitado, `.gitignore`, nomes de arquivo suspeitos                     |
 | Limpeza do Repositório | 0.10 | Lixo de SO, `build/`/`dist/` commitados, `node_modules/` na raiz               |
 
-`geral = round(Σ score_i · peso_i)` — notas **A** ≥ 90, **B** ≥ 80, **C** ≥ 70, **D** ≥ 60, **F** caso contrário. Lista completa em [docs/SCORING.md](docs/SCORING.md).
+`geral = round(Σ score_i · peso_i)` — notas **A+** ≥ 90, **A** ≥ 80, **B** ≥ 70, **C** ≥ 60, **D** ≥ 50, **F** caso contrário. Lista completa em [docs/SCORING.md](docs/SCORING.md).
 
 ---
 
@@ -93,7 +93,7 @@ Testes do backend:
 cd apps/api && pytest
 ```
 
-Seis testes cobrem o extrator zip-safe, o scanner, a detecção de stack, o scoring, a geração de problemas e os relatórios.
+Sete testes cobrem o extrator zip-safe, o scanner, a detecção de stack, o scoring, a geração de problemas e os relatórios.
 
 ---
 

@@ -240,10 +240,11 @@ concretos tirados do conjunto de problemas + recomendações.
 ## 5. Faixas de nota
 
 ```
-A   geral ≥ 90
-B   geral ≥ 80
-C   geral ≥ 70
-D   geral ≥ 60
+A+  geral ≥ 90
+A   geral ≥ 80
+B   geral ≥ 70
+C   geral ≥ 60
+D   geral ≥ 50
 F   caso contrário
 ```
 
